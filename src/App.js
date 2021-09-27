@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Component } from 'react';
-import { Card, Form } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
+import './App.css';
 
 require('dotenv').config();
 
@@ -58,16 +59,18 @@ class App extends Component {
           ></input>
           <button type='submit'>Explore!</button>
         </Form>
-        <Card>
+        <Container id='map' fluid='sm'>
           {this.state.location.length > 0 && (
             <>
-              <h2>The city is: {this.state.location[0].display_name}</h2>
-              <h3>The latitude is: {this.state.location[0].lat}</h3>
-              <h3>The longitude is: {this.state.location[0].lon}</h3>
+              <Container id='mapText'>
+                <h2>The city is: {this.state.location[0].display_name}</h2>
+                <h3>latitude: {this.state.location[0].lat}</h3>
+                <h3>longitude: {this.state.location[0].lon}</h3>
+              </Container>
               <img src={this.state.location[0].map} alt='map of city' />
             </>
           )}
-        </Card>
+        </Container>
         {this.state.error && <h2>Oops!</h2>}
       </>
     );

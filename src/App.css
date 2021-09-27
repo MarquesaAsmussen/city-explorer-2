@@ -1,4 +1,17 @@
-.App {
+#map {
+  background-color: tan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+#mapText {
+  justify-content: start;
+}
+
+/* --------------------------------came with React App------------------------- */
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +48,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

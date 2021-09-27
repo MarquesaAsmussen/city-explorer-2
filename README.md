@@ -17,21 +17,41 @@
 
 ## Change Log
 
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps.-->
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+09-25-2021 9:00pm - Application now displays a map of a user input city, as well as the name and lat/lon of that city
 
 ## Time Estimates
 
-Name of feature: ******\*\*******\_\_\_\_******\*\*******
+Name of feature: Setup
 
-Estimate of time needed to complete: **\_**
+Estimate of time needed to complete: 1 hour
 
-Start time: **\_**
+Start time: 1 pm
 
-Finish time: **\_**
+Finish time: 2:30 pm
 
-Actual time needed to complete: **\_**
+Actual time needed to complete: 1.5 hrs
+
+Name of feature: Locations
+
+Estimate of time needed to complete: 2 hrs
+
+Start time: 2:30
+
+Finish time: 6:30
+
+Actual time needed to complete: 4 hrs
+
+Name of feature: Map
+
+Estimate of time needed to complete: 30 min
+
+Start time: 7:30
+
+Finish time: 9 pm
+
+Actual time needed to complete: 1.5 hrs
 
 ## Credit and Collaborations
 
