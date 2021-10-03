@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
 import { Container, Form, Toast } from 'react-bootstrap';
 import './App.css';
@@ -13,6 +14,7 @@ class App extends Component {
       searchQuery: '',
       location: [],
       error: false,
+      errorMessage: '',
     };
   }
 
@@ -43,8 +45,15 @@ class App extends Component {
     } catch (error) {
       console.error('Unable to find city', this.state.searchQuery);
 
-      this.setState({ error: true });
+      this.setState({
+        error: true,
+        errorMessage: error.response.status + ': ' + error.response.data.error,
+      });
     }
+  };
+
+  handleClose = () => {
+    this.setState({ error: false });
   };
 
   render() {
@@ -59,7 +68,7 @@ class App extends Component {
           ></input>
           <button type='submit'>Explore!</button>
         </Form>
-        <Toast>
+        <Toast onClose={this.handleClose}>
           {this.state.error && (
             <>
               <Toast.Header>
@@ -67,6 +76,7 @@ class App extends Component {
               </Toast.Header>
               <Toast.Body>
                 <h2>Oops! That city couldn't be found.</h2>
+                <p>{this.state.errorMessage}</p>
               </Toast.Body>
             </>
           )}
