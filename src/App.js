@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Component } from 'react';
 import { Container, Form, Toast } from 'react-bootstrap';
 import './App.css';
+import Weather from './components/Weather';
 
-require('dotenv').config();
+const SERVER = process.env.REACT_APP_BACKEND_URL;
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,11 @@ class App extends Component {
       location: [],
       error: false,
       errorMessage: '',
+      image: '',
+      weather: [],
+      weatherError: '',
+      movie: [],
+      movieError: '',
     };
   }
 
@@ -51,6 +57,20 @@ class App extends Component {
       });
     }
   };
+
+  getWeather = async searchQuery => {
+    // check this url
+    const server = `${SERVER}/weather?searchQuery=${searchQuery}&lat=${this.state.location.lat}&lon=${this.state.location.lon}`;
+
+    try {
+      const response = await axios.get(server);
+      this.setState({ weather: response.data });
+    } catch (error) {
+      this.setState({ weatherError: true });
+    }
+  };
+
+  // }
 
   handleClose = () => {
     this.setState({ error: false });
@@ -93,6 +113,7 @@ class App extends Component {
             </>
           )}
         </Container>
+        <Weather weather={this.state.weather} />
       </>
     );
   }
